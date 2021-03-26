@@ -85,7 +85,23 @@ vector<int> Carpet(int brown, int yellow)
     vector<int> answer;
 
     /* copy */
+    int p1 = 1, p2 = brown + yellow;
 
+    if (yellow == 1) {
+        answer.push_back( (brown + yellow) / 3);
+        answer.push_back(3);
+        return answer;
+    }
+
+    for (int i=1; i<yellow; i++) {
+        if (yellow % i == 0) {
+            p1 = i + 2;
+            p2 = yellow / i + 2;
+            if (p1 * p2 == brown + yellow) break;
+        }
+    }
+    answer.push_back(p2); 
+    answer.push_back(p1);
 
     return answer;
 }
@@ -111,8 +127,23 @@ int main()
     */
 
    /* 카펫 */
-   int brown = 10, yellow = 2;
+   int brown = 8, yellow = 1;
 
+   vector<int> answer = Carpet(brown, yellow);
+
+   for (auto a : answer) printf("%d ", a);
+    printf("\n");
+
+
+    /*
+        경험
+        1. 배열에 대한 순열 찾기 (ref. 소수 찾기) - 모든 경우의 수, 완전 탐색 ( summary. 정렬 -> 조합 생성 (for문으로 길이마다 넣어주기) -> 중복 제거 )
+        2. 배열에 대한 조합 찾기 (ref. https://notepad96.tistory.com/entry/C-%EC%A1%B0%ED%95%A9Combination-%EA%B5%AC%ED%95%98%EA%B8%B0)
+
+            ex) 길이에 따른 loop 돌리며 벡터 생성 (길이가 5인 배열에서 길이가 1인 조합을 구하기 위해서 v = [false, false, false, false, true] 등으로 생성)
+                -> next_permutation을 이용해 v에 대한 조합 구해 true에 해당하는 인덱스 빼오기
+                -> 모든 길이에 대해 반복 수행.
+   */
 
     return 0;
 }
