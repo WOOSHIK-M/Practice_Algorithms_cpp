@@ -188,7 +188,7 @@ int main()
     /*
         경험
         1. prioirty_queue와 queue< pair<int, int> > 등의 궁합은 아주 좋다.
-        2. prioirty_queue는 자동으로 정렬된다. priority_queue< int, int, greater<int> > pq -> 오름차순으로 정렬 (Default는 내림차순)
+        2. prioirty_queue는 자동으로 정렬된다. priority_queue< int, vector<int>, greater<int> > pq -> 오름차순으로 정렬 (Default는 내림차순)
    */
 
     return 0;

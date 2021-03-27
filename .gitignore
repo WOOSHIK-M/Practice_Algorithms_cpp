@@ -9,6 +9,10 @@ ignore-file.txt
 # *.log
 
 .vscode/
+
+test.cpp
+정리.cpp
+
 *.txt
 *.exe
 *.docx
